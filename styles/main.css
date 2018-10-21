@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #EAE7DC;
+  font-family: "Bungee", serif;
+  line-height: 1;
+  background: repeating-linear-gradient(
+  	120DEG,
+  	#EAE7DC,
+  	#EAE7DC 10px,
+  	#eeebe3 10px,
+  	#eeebe3 20px
+);
+}
+
+/*Title text*/
+.hangman-title{
+	font-family: "Bungee", serif;
+	text-align: center;
+	margin: 10px auto;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	justify-content: center;
+	font-size: 48px;
+	color: #E85A4F;
+}
+
+/*Subitle text*/
+.hangman-subtitle{
+	font-family: "Bungee", serif;
+	text-align: center;
+	margin: 10px auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	justify-content: center;
+	font-size: 24px;
+	color: #E85A4F;
+}
+
+
+/*Contains everything from the image to the end of the tiles*/
+.hangman {
+  max-width: 700px;
+  width: 75%;
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+
+/*Holder div of the tiles section*/
+.hangman-tiles {
+  text-align: center;
+  margin: 20px auto;
+}
+
+#hangman{
+	max-width: 50%;
+        max-height: 50%;
+}
+
+.hangman-tiles div {
+  background: white;
+  display: inline-block;
+  padding: 8px 16px 10px;
+  margin: 3px;
+  font-weight: bold;
+  font-size: 26px;
+  cursor: pointer;
+  position: relative;
+  transition: .2s;
+  border-radius: 3px;
+  border-width: 4px;
+  border-color: black;
+  border-style: solid;
+}
+
+.hangman-tiles div:hover {
+  background: #ddd;
+}
+
+.hangman-tiles .disabled {
+  color: #666;
+  background: #E7717D;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+.hangman-tiles .disabled.correct {
+  background: #AFD275;
+}
+
+
+.hangman-tiles .disabled.incorrect {
+  background: #E7717D;
+}
+
+.hangman-word {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.hangman-word-letters {
+  display: inline-block;
+  padding: 8px 16px 10px;
+  margin: 4px;
+  border-bottom: 5px solid black;
+  height: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  width: 30px;
+  flex: 1 auto;
+  padding-bottom: 3px;
+}
+
+.hangman-word-letters.space {
+  border: 0;
+}
+
+.hangman-word-letters.game-lost {
+  color: #277265;
+}
+
+.hangman-results {
+  text-align: center;
+  position: relative;
+}
+
+.hangman-results .game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 60px 20px;
+  width: 100%;
+  max-width: 400px;
+  border: solid;
+  border-radius: 3px;
+  border-color: black;
+  border-width: 3px;
+}
+
+.lost-bg-color{
+	background: #E7717D;
+}
+
+.hangman-results .game-over p {
+  font-size: 24PX;
+
+}
+
+.hangman-results .game-over button {
+  background: #fff;
+  padding: 5px;
+  font-size: 24px;
+  font-family: "Bungee", serif;
+  cursor: pointer;
+  transition: .2s;
+  border-width: 2px;
+  border-color: black;
+  border-radius:  3px;
+  border: solid;
+}
+
+.hangman-results .game-over button:hover {
+  background: #ddd;
+}
+
+.hangman-results .game-over button:focus {
+  outline: 0;
+}
+
+
+.hangman-hangman {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#deftextlost{
+	font-size:18px;
+}
+
+#deftextwon{
+	font-size:18px;
+}
+
+/* Start of media only */
+@media only screen and (max-width: 480px){
+  .hangman-word-letters {
+    font-size: 24px;
+    width: 20px;
+    height: 36px;
+    padding: 6px 0 8px;
+  }
+
+  .hangman-title{
+  	font-size:24px;
+  }
+  .hangman-subtitle{
+  	font-size:18px;
+  	margin-top: -15px;
+  }
+  .hangman-tiles div {
+    padding: 6px 12px 8px;
+    font-size: 18px;
+  }
+  .hangman-tiles .disabled:before {
+    font-size: 26px;
+  }
+  .hangman-results .game-over {
+    padding: 30px;
+  }
+  .hangman-results .game-over p {
+    margin-top: 0;
+  }
+  .hangman-results .game-over button {
+    padding: 10px 20px;
+    font-size: 26px;
+  }
+  .hangman-hangman {
+    padding: 0 0px;
+  }
+
+  #hangman{
+	max-width: 50%;
+        max-height: 50%;
+}
+   #footer{
+	margin-top:3px;
+}
+
+}
