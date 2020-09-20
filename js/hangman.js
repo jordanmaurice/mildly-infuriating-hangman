@@ -62,7 +62,7 @@ function getWord(){
 	var jQueryRequest = $.getJSON(link, function(json) {
   		hangmanWord = json['word']
   		hangmanWord = hangmanWord.toLowerCase();
-  		console.log(hangmanWord);
+  		//console.log(hangmanWord);
 	})
   	.done(function(){})
   	.fail(function(){console.log("error");})
@@ -77,7 +77,7 @@ function getWord(){
 function getDefinition(){
 	var newdefLink = 'https://api.wordnik.com/v4/word.json/'+hangmanWord+'/definitions?limit=200&includeRelated=false&useCanonical=false&includeTags=false&api_key=1652956318bc664a0c50602b9930097d536bc669d02e039d3'
 	var definitionRequest = $.getJSON(newdefLink, function(json) {
-  		console.log( "Successfully retrieved definition" );
+  		//console.log( "Successfully retrieved definition" );
   		if(json.length > 0){
 	  		definition = json[0]['text'];
 	  		source = json[0]['sourceDictionary'];
@@ -210,9 +210,9 @@ function gameOver(result){
 		
 		//If definition exists, display it
 		if(definition!="null"){
-			console.log("appending text"+hangmanWord+definition);
-
-			$('#def-text-won').text(definition);
+			//console.log("appending text" + hangmanWord + definition);
+			var strippedDef = definition.replace(/(<([^>]+)>)/gi, "");
+			$('#def-text-won').text(strippedDef);
 		}
 	}
 
@@ -236,7 +236,8 @@ function gameOver(result){
 
 		//If a definition is available, show it
 		if(definition!="null"){
-			$('#def-text-lost').text(definition);
+			var strippedDef = definition.replace(/(<([^>]+)>)/gi, "");
+			$('#def-text-lost').text(strippedDef);
 		}
 	}
 
